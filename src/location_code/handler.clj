@@ -6,15 +6,14 @@
                                          municipality-codes
                                          congregation-codes]]))
 
-(defn- location-response [locations & [id]]
-  (if id
-    (let [location (locations id)]
-      (if location
-        (response {:success true
-                   :data location})
-        (response {:success false})))
-    (response {:success true
-               :data locations})))
+(defn- location-response
+  ([locations] (response {:success true
+                          :data locations}))
+  ([locations id] (let [location (locations id)]
+                    (if location
+                      (response {:success true
+                                 :data location})
+                      (response {:success false})))))
 
 (defroutes app-routes
   (GET "/counties" []
