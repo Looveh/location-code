@@ -8,13 +8,14 @@ You will need [Leiningen][] 2.0.0 or above installed.
 
 # Running
 
-To start a web server for the application, run:
+Start the server with:
 
 ```bash
 lein ring server
 ```
 
 # API
+Resources are fetched through:
 ```bash
 GET /counties
 GET /counties/:id
@@ -24,7 +25,10 @@ GET /congregations
 GET /congregations/:id
 ```
 
-# Examples
+## Examples
+
+### Listing resources
+
 ```bash
 GET /counties
 {
@@ -39,6 +43,8 @@ GET /counties
 }
 ```
 
+### Individual resources
+
 ```bash
 GET /municipalities/0183
 {
@@ -48,6 +54,8 @@ GET /municipalities/0183
   }
 }
 ```
+
+### Missing resources
 
 ```bash
 GET /municipalities/9876
